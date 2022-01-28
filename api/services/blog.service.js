@@ -2,7 +2,8 @@ const BlogModel = require('../models/blog.model');
 const CustomError = require('../utils/custom.error')
 class blogService {
     async createPost(data) {
-        return await model.create(data);
+        const newBlog = await model.create(data);
+        return newBlog;
     }
 
     async getAll() {
