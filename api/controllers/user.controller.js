@@ -7,7 +7,6 @@ class userController {
     async create(req, res) {
 
         const password = await hashedPassword(req.body.password)
-        console.log(password)
         const user = await userService.createUser({ ...req.body, password });
         const token = generateToken(user)
         res.status(201).send({

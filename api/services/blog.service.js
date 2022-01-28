@@ -2,13 +2,7 @@ const BlogModel = require('../models/blog.model');
 const CustomError = require('../utils/custom.error')
 class blogService {
     async createPost(data) {
-
-        if (!title || !description || !author) throw new CustomError("Validation failed");
-        let createData = await model.create(data);
-        if (!createData) {
-
-        }
-        return createData
+        return await model.create(data);
     }
 
     async getAll() {

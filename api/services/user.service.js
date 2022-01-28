@@ -3,8 +3,8 @@ const CustomError = require('../utils/custom.error')
 
 class userService {
     async createUser(data) {
-        const { email } = data
-        const existingUser = await userModel.findOne({ email })
+
+        const existingUser = await userModel.findOne({ email: data.email })
         if (existingUser) {
             throw new CustomError("User already exist")
         }
