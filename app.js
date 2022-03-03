@@ -12,7 +12,7 @@ require('dotenv').config();
 
 
 
-mongoose.connect(MONGO_URL).then(() => { console.log("Connected") })
+mongoose.connect(process.env.MONGO_URL).then(() => { console.log("Connected") })
     .catch(err => console.log(err));
 
 app.use(morgan("dev"));
