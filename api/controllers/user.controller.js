@@ -7,11 +7,11 @@ class userController {
     async create(req, res) {
 
         const password = await hashedPassword(req.body.password)
-        console.log(password)
+
         const user = await userService.createUser({ ...req.body, password });
         const token = generateToken(user)
         res.status(201).send({
-            success: "true", response: "user created",
+            success: true, message: "user created",
             data: { user, token }
 
         });
@@ -20,7 +20,7 @@ class userController {
     async getAll(req, res) {
         const result = await userService.getAll();
         res.status(200).send({
-            success: "true", response: "users gotten succesfully.",
+            success: true, massage: "users gotten succesfully.",
             data: result
         });
     }
@@ -28,12 +28,12 @@ class userController {
         console.log('this is the output', req.query);
         const result = await userService.getById(req.query.id);
         res.status(201).send({
-            success: "true", response: "user gotten succesfully.",
+            success: true, massage: "user gotten succesfully.",
             data: result
         });
     }
     async update(req, res) {
-        res.status(201).send({ success: "true", response: "user updated succesfully." })
+        res.status(201).send({ success: true, massage: "user updated succesfully." })
     }
 
 }

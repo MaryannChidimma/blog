@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const readingTime = require('../utils/textMinRead');
 
 const blogSchema = new Schema({
     title: {
@@ -17,6 +18,17 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
+
+    noOfViews: {
+        type: Number,
+    },
+    readingTime: {
+        type: Number
+    },
+    email: {
+        type: String
+    }
+
 });
 
 module.exports = model("blog", blogSchema);
