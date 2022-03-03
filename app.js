@@ -5,13 +5,14 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Blog = require('./api/routes/blog.route');
 const User = require("./api/routes/user.route")
+require('dotenv').config();
 
 
 // require("express-async-errors")
 
 
 
-mongoose.connect('mongodb://localhost:27017/blog').then(() => { console.log("Connected") })
+mongoose.connect(MONGO_URL).then(() => { console.log("Connected") })
     .catch(err => console.log(err));
 
 app.use(morgan("dev"));
